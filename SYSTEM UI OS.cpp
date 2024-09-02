@@ -28,7 +28,6 @@ void menu() {
 	bool salir = false;
 	
 	while(!salir) {
-	system("cls");
 	system("mode con: cols=90 lines=34");
 	cuadro(0,0,85,25); //UI de MI SISTEMA
 	cuadro(0,0,85,4);
@@ -62,7 +61,7 @@ void menu() {
 	    gotoxy(5,10);cout<<"2) Perimetro";
 	    gotoxy(5,11);cout<<"3) Salir";
 	    gotoxy(5,13);cout<<"OPCION: ";
-	    cin>>opc;
+	    gotoxy(14,13);cin>>opc;
 	    
 	    switch(opc) {
 	    	case 1:
@@ -77,17 +76,91 @@ void menu() {
 	    		break;
 	    	default:
 	    		gotoxy(5,15);cout<<"Opcion invalida."<<endl;
-	    		system("pause");
+	    		getch();
+	    		gotoxy(12,13);cout<<"    ";
 	    		break;
 		}
 	}
 }
 
 void menuArea() {
+	int opc,L,A,B,H,R,RE;
+	cuadro(23,6,39,15);
+	cuadro(23,6,39,8);
+	cuadro(23,6,39,13);
 	
+	cuadroalt(23,0,39,8);
+	cuadroalt(23,0,39,13);
+	
+	gotoxy(25,7);cout<<"AREA";
+	gotoxy(25,9);cout<<"1) Cuadrado";
+	gotoxy(25,10);cout<<"2) Triangulo";
+	gotoxy(25,11);cout<<"3) Rectangulo";
+	gotoxy(25,12);cout<<"4) Circulo";
+	gotoxy(25,14);cout<<"OPCION: ";
+	gotoxy(34,14);cin>>opc;
+	
+	switch(opc) {
+		case 1:
+			cout<<"CUADRADO";
+			cout<<"Ingresa Lado: ";
+			cin>>L;
+			RE = (L * L);
+			cout<<"El area del cuadrado es: "<<RE;
+			getch();
+			break;
+		case 2:
+			cout<<"TRIANGULO";
+			cout<<"Ingresa Base: ";
+			cin>>B;
+			cout<<"Ingresa Altura: ";
+			cin>>H;
+			RE = (B * H) / 2;
+			cout<<"El area del triangulo es: "<<RE;
+			getch();
+			break;
+		case 3:
+			cout<<"RECTANGULO";
+			cout<<"Ingresa Longitud: ";
+			cin>>L;
+			cout<<"Ingresa Ancho: ";
+			cin>>A;
+			RE = (L * A);
+			cout<<"El area del rectangulo es: "<<RE;
+			getch();
+			break;
+		case 4:
+			cout<<"CIRCULO";
+			cout<<"Ingresa Radio: ";
+			cin>>R;
+			RE = 3.1416 * (R * R);
+			cout<<"El area del circulo es: "<<RE;
+			getch();
+			break;
+		default:
+			gotoxy(25,17);cout<<"Opcion invalida";
+			getch();
+			gotoxy(25,17);cout<<"               ";
+			gotoxy(32,14);cout<<"    ";
+			menuArea();
+	}
 }
 void menuPerimetro() {
+	int opc;
+	cuadro(23,6,39,15);
+	cuadro(23,6,39,8);
+	cuadro(23,6,39,13);
 	
+	cuadroalt(23,0,39,8);
+	cuadroalt(23,0,39,13);
+	
+	gotoxy(25,7);cout<<"PERIMETRO";
+	gotoxy(25,9);cout<<"1) Cuadrado";
+	gotoxy(25,10);cout<<"2) Triangulo";
+	gotoxy(25,11);cout<<"3) Rectangulo";
+	gotoxy(25,12);cout<<"4) Circulo";
+	gotoxy(25,14);cout<<"OPCION: ";
+	cin>>opc;
 }
 
 void gotoxy(int x,int y) {
