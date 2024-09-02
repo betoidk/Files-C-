@@ -223,13 +223,20 @@ void menuPerimetro() {
 			getch();
 			break;
 		case 3:
-			cout<<"RECTANGULO";
-			cout<<"Ingresa longitud: ";
-			cin>>L;
-			cout<<"Ingresa ancho: ";
-			cin>>A;
+			cuadro(44,6,81,13);
+			cuadro(44,6,81,8);
+			cuadro(44,6,81,11);
+			
+			cuadroalt(44,0,81,8);
+			cuadroalt(44,6,81,11);
+			
+			gotoxy(46,7);cout<<"RECTANGULO";
+			gotoxy(46,9);cout<<"Ingresa longitud: ";
+			gotoxy(65,9);cin>>L;
+			gotoxy(46,10);cout<<"Ingresa ancho: ";
+			gotoxy(65,10);cin>>A;
 			RE = 2 * (L + A);
-			cout<<"El perimetro del rectangulo es: "<<RE;
+			gotoxy(46,12);cout<<"El perimetro del rectangulo es: "<<RE;
 			getch();
 			break;
 		case 4:
