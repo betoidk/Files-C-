@@ -240,11 +240,18 @@ void menuPerimetro() {
 			getch();
 			break;
 		case 4:
-			cout<<"CIRCULO";
-			cout<<"Ingresa radio: ";
-			cin>>R;
+			cuadro(44,6,80,12);
+			cuadro(44,6,80,8);
+			cuadro(44,6,80,10);
+			
+			cuadroalt(44,0,80,8);
+			cuadroalt(44,6,80,10);
+			
+			gotoxy(46,7);cout<<"CIRCULO";
+			gotoxy(46,9);cout<<"Ingresa radio: ";
+			gotoxy(65,9);cin>>R;
 			RE = 2 * 3.1416 * R;
-			cout<<"El perimetro del circulo es: "<<RE;
+			gotoxy(46,11);cout<<"El perimetro del circulo es: "<<RE;
 			getch();
 			break;
 		default:
