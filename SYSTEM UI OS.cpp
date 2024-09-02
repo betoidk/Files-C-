@@ -132,21 +132,33 @@ void menuArea() {
 			getch();
 			break;
 		case 3:
-			cout<<"RECTANGULO";
-			cout<<"Ingresa Longitud: ";
-			cin>>L;
-			cout<<"Ingresa Ancho: ";
-			cin>>A;
+			cuadro(44,6,80,13);
+			cuadro(44,6,80,8);
+			cuadro(44,6,80,11);
+			
+			cuadroalt(44,0,80,8);
+			cuadroalt(44,6,80,11);
+			gotoxy(46,7);cout<<"RECTANGULO";
+			gotoxy(46,9);cout<<"Ingresa Longitud: ";
+			gotoxy(64,9);cin>>L;
+			gotoxy(46,10);cout<<"Ingresa Ancho: ";
+			gotoxy(61,10);cin>>A;
 			RE = (L * A);
-			cout<<"El area del rectangulo es: "<<RE;
+			gotoxy(46,12);cout<<"El area del rectangulo es: "<<RE;
 			getch();
 			break;
 		case 4:
-			cout<<"CIRCULO";
-			cout<<"Ingresa Radio: ";
-			cin>>R;
+			cuadro(44,6,80,12);
+			cuadro(44,6,80,8);
+			cuadro(44,6,80,10);
+			
+			cuadroalt(44,0,80,8);
+			cuadroalt(44,0,80,10);
+			gotoxy(46,7);cout<<"CIRCULO";
+			gotoxy(46,9);cout<<"Ingresa Radio: ";
+			gotoxy(61,9);cin>>R;
 			RE = 3.1416 * (R * R);
-			cout<<"El area del circulo es: "<<RE;
+			gotoxy(46,11);cout<<"El area del circulo es: "<<RE;
 			getch();
 			break;
 		default:
@@ -157,8 +169,9 @@ void menuArea() {
 			menuArea();
 	}
 }
+
 void menuPerimetro() {
-	int opc;
+	int opc,L,A,R,RE;
 	cuadro(23,6,39,15);
 	cuadro(23,6,39,8);
 	cuadro(23,6,39,13);
@@ -172,7 +185,40 @@ void menuPerimetro() {
 	gotoxy(25,11);cout<<"3) Rectangulo";
 	gotoxy(25,12);cout<<"4) Circulo";
 	gotoxy(25,14);cout<<"OPCION: ";
-	cin>>opc;
+	gotoxy(34,14);cin>>opc;
+	
+	switch(opc) {
+		case 1:
+			cuadro(44,6,80,12);
+			cuadro(44,6,80,8);
+			cuadro(44,6,80,10);
+			
+			cuadroalt(44,0,80,8);
+			cuadroalt(44,0,80,10);
+			
+			gotoxy(46,7);cout<<"CUADRADO";
+			gotoxy(46,9);cout<<"Ingresa longitud: ";
+			gotoxy(64,9);cin>>L;
+			RE = (4 * L);
+			gotoxy(46,11);cout<<"El perimetro del cuadrado es: "<<RE;
+			getch();
+			break;
+		case 2:
+			getch();
+			break;
+		case 3:
+			getch();
+			break;
+		case 4:
+			getch();
+			break;
+		default:
+			gotoxy(25,17);cout<<"Opcion invalida";
+			getch();
+			gotoxy(25,17);cout<<"               ";
+			gotoxy(32,14);cout<<"    ";
+			menuPerimetro();
+	}
 }
 
 void gotoxy(int x,int y) {
