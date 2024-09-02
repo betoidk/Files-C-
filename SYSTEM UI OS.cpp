@@ -102,21 +102,33 @@ void menuArea() {
 	
 	switch(opc) {
 		case 1:
-			cout<<"CUADRADO";
-			cout<<"Ingresa Lado: ";
-			cin>>L;
+			cuadro(44,6,80,12);
+			cuadro(44,6,80,8);
+			cuadro(44,6,80,10);
+			
+			cuadroalt(44,0,80,8);
+			cuadroalt(44,0,80,10);
+			gotoxy(46,7);cout<<"CUADRADO";
+			gotoxy(46,9);cout<<"Ingresa Lado: ";
+			gotoxy(61,9);cin>>L;
 			RE = (L * L);
-			cout<<"El area del cuadrado es: "<<RE;
+			gotoxy(46,11);cout<<"El area del cuadrado es: "<<RE;
 			getch();
 			break;
 		case 2:
-			cout<<"TRIANGULO";
-			cout<<"Ingresa Base: ";
-			cin>>B;
-			cout<<"Ingresa Altura: ";
-			cin>>H;
+			cuadro(44,6,80,13);
+			cuadro(44,6,80,8);
+			cuadro(44,6,80,11);
+			
+			cuadroalt(44,0,80,8);
+			cuadroalt(44,0,80,11);
+			gotoxy(46,7);cout<<"TRIANGULO";
+			gotoxy(46,9);cout<<"Ingresa Base: ";
+			gotoxy(61,9);cin>>B;
+			gotoxy(46,10);cout<<"Ingresa Altura: ";
+			gotoxy(61,10);cin>>H;
 			RE = (B * H) / 2;
-			cout<<"El area del triangulo es: "<<RE;
+			gotoxy(46,12);cout<<"El area del triangulo es: "<<RE;
 			getch();
 			break;
 		case 3:
