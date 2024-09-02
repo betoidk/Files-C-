@@ -212,17 +212,24 @@ void menuPerimetro() {
 			cuadroalt(44,6,80,12);
 			
 			gotoxy(46,7);cout<<"TRIANGULO";
-			gotoxy(46,9);cout<<"Inserta Lado 1: ";
+			gotoxy(46,9);cout<<"Ingresa Lado 1: ";
 			gotoxy(62,9);cin>>L1;
-			gotoxy(46,10);cout<<"Inserta Lado 2: ";
+			gotoxy(46,10);cout<<"Ingresa Lado 2: ";
 			gotoxy(62,10);cin>>L2;
-			gotoxy(46,11);cout<<"Inserta Lado 3: ";
+			gotoxy(46,11);cout<<"Ingresa Lado 3: ";
 			gotoxy(62,11);cin>>L3;
 			RE = (L1 + L2 + L3);
 			gotoxy(46,13);cout<<"El perimetro del triangulo es: "<<RE;
 			getch();
 			break;
 		case 3:
+			cout<<"RECTANGULO";
+			cout<<"Ingresa longitud: ";
+			cin>>L;
+			cout<<"Ingresa ancho: ";
+			cin>>A;
+			RE = 2 * (L + A);
+			cout<<"El perimetro del rectangulo es: "<<RE;
 			getch();
 			break;
 		case 4:
