@@ -171,7 +171,7 @@ void menuArea() {
 }
 
 void menuPerimetro() {
-	int opc,L,A,R,RE;
+	int opc,L,L1,L2,L3,A,R,RE;
 	cuadro(23,6,39,15);
 	cuadro(23,6,39,8);
 	cuadro(23,6,39,13);
@@ -204,6 +204,15 @@ void menuPerimetro() {
 			getch();
 			break;
 		case 2:
+			cout<<"TRIANGULO";
+			cout<<"Inserta Lado 1: ";
+			cin>>L1;
+			cout<<"Inserta Lado 2: ";
+			cin>>L2;
+			cout<<"Inserta Lado 3: ";
+			cin>>L3;
+			RE = (L1 + L2 + L3);
+			cout<<"El perimetro del triangulo es: "<<RE;
 			getch();
 			break;
 		case 3:
