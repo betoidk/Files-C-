@@ -112,6 +112,7 @@ void menuArea() {
 			gotoxy(46,9);cout<<"Ingresa Lado: ";
 			gotoxy(61,9);cin>>L;
 			RE = (L * L);
+			OcultarCursor();
 			gotoxy(46,11);cout<<"El area del cuadrado es: "<<RE;
 			getch();
 			break;
@@ -128,6 +129,7 @@ void menuArea() {
 			gotoxy(46,10);cout<<"Ingresa Altura: ";
 			gotoxy(61,10);cin>>H;
 			RE = (B * H) / 2;
+			OcultarCursor();
 			gotoxy(46,12);cout<<"El area del triangulo es: "<<RE;
 			getch();
 			break;
@@ -144,6 +146,7 @@ void menuArea() {
 			gotoxy(46,10);cout<<"Ingresa Ancho: ";
 			gotoxy(61,10);cin>>A;
 			RE = (L * A);
+			OcultarCursor();
 			gotoxy(46,12);cout<<"El area del rectangulo es: "<<RE;
 			getch();
 			break;
@@ -158,6 +161,7 @@ void menuArea() {
 			gotoxy(46,9);cout<<"Ingresa Radio: ";
 			gotoxy(61,9);cin>>R;
 			RE = 3.1416 * (R * R);
+			OcultarCursor();
 			gotoxy(46,11);cout<<"El area del circulo es: "<<RE;
 			getch();
 			break;
@@ -200,6 +204,7 @@ void menuPerimetro() {
 			gotoxy(46,9);cout<<"Ingresa longitud: ";
 			gotoxy(64,9);cin>>L;
 			RE = (4 * L);
+			OcultarCursor();
 			gotoxy(46,11);cout<<"El perimetro del cuadrado es: "<<RE;
 			getch();
 			break;
@@ -219,6 +224,7 @@ void menuPerimetro() {
 			gotoxy(46,11);cout<<"Ingresa Lado 3: ";
 			gotoxy(62,11);cin>>L3;
 			RE = (L1 + L2 + L3);
+			OcultarCursor();
 			gotoxy(46,13);cout<<"El perimetro del triangulo es: "<<RE;
 			getch();
 			break;
@@ -236,6 +242,7 @@ void menuPerimetro() {
 			gotoxy(46,10);cout<<"Ingresa ancho: ";
 			gotoxy(65,10);cin>>A;
 			RE = 2 * (L + A);
+			OcultarCursor();
 			gotoxy(46,12);cout<<"El perimetro del rectangulo es: "<<RE;
 			getch();
 			break;
@@ -251,6 +258,7 @@ void menuPerimetro() {
 			gotoxy(46,9);cout<<"Ingresa radio: ";
 			gotoxy(65,9);cin>>R;
 			RE = 2 * 3.1416 * R;
+			OcultarCursor();
 			gotoxy(46,11);cout<<"El perimetro del circulo es: "<<RE;
 			getch();
 			break;
