@@ -28,6 +28,7 @@ void menu() {
 	bool salir = false;
 	
 	while(!salir) {
+	system("Color 0A");
 	system("mode con: cols=90 lines=34");
 	cuadro(0,0,85,25); //UI de MI SISTEMA
 	cuadro(0,0,85,4);
@@ -71,11 +72,11 @@ void menu() {
 	    		menuPerimetro();
 	    		break;
 	    	case 3:
-	    		gotoxy(5,15);cout<<"Saliendo... "<<endl;
 	    		salir = true;
+	    		gotoxy(17,23);cout<<"Saliendo... "<<endl;
 	    		break;
 	    	default:
-	    		gotoxy(5,15);cout<<"Opcion invalida."<<endl;
+	    		gotoxy(17,23);cout<<"Opcion invalida."<<endl;
 	    		getch();
 	    		gotoxy(12,13);cout<<"    ";
 	    		break;
@@ -85,24 +86,27 @@ void menu() {
 
 void menuArea() {
 	int opc,L,A,B,H,R,RE;
-	cuadro(23,6,39,15);
+	char LE;
+	cuadro(23,6,39,16);
 	cuadro(23,6,39,8);
-	cuadro(23,6,39,13);
+	cuadro(23,6,39,14);
 	
 	cuadroalt(23,0,39,8);
-	cuadroalt(23,0,39,13);
+	cuadroalt(23,0,39,14);
 	
 	gotoxy(25,7);cout<<"AREA";
 	gotoxy(25,9);cout<<"1) Cuadrado";
 	gotoxy(25,10);cout<<"2) Triangulo";
 	gotoxy(25,11);cout<<"3) Rectangulo";
 	gotoxy(25,12);cout<<"4) Circulo";
-	gotoxy(25,14);cout<<"OPCION: ";
-	gotoxy(34,14);cin>>opc;
+	gotoxy(25,13);cout<<"5) Regresar";
+	gotoxy(25,15);cout<<"OPCION: ";
+	gotoxy(34,15);cin>>opc;
 	
 	switch(opc) {
+		do {
 		case 1:
-			cuadro(44,6,80,12);
+			cuadro(44,6,80,13);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,10);
 			
@@ -114,10 +118,41 @@ void menuArea() {
 			RE = (L * L);
 			OcultarCursor();
 			gotoxy(46,11);cout<<"El area del cuadrado es: "<<RE;
-			getch();
-			break;
+			gotoxy(17,23);cout<<"Si = s y No = n";
+			gotoxy(46,12);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,12);LE = getch();
+			if (LE == 's' || LE == 'S') {
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(17,23);cout<<"                ";
+			} else if (LE == 'n' || LE == 'N') {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(17,23);cout<<"                ";
+				gotoxy(32,15);cout<<"    ";
+				menuArea();
+				gotoxy(32,15);cout<<"    ";
+			}
+			
+		} while (LE == 's' || LE == 'S');
+		break;
+		do {
 		case 2:
-			cuadro(44,6,80,13);
+			cuadro(44,6,80,14);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,11);
 			
@@ -131,10 +166,41 @@ void menuArea() {
 			RE = (B * H) / 2;
 			OcultarCursor();
 			gotoxy(46,12);cout<<"El area del triangulo es: "<<RE;
-			getch();
+			gotoxy(17,23);cout<<"Si = s y No = n";
+			gotoxy(46,13);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,13);LE = getch();
+			if (LE == 's' || LE == 'S') {
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+			} else if (LE == 'n' || LE == 'N') {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+				gotoxy(32,15);cout<<"    ";
+				menuArea();
+				gotoxy(32,15);cout<<"    ";
+			}
+			
+		} while (LE == 's' || LE == 'S');
 			break;
+		do {
 		case 3:
-			cuadro(44,6,80,13);
+			cuadro(44,6,80,14);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,11);
 			
@@ -148,10 +214,40 @@ void menuArea() {
 			RE = (L * A);
 			OcultarCursor();
 			gotoxy(46,12);cout<<"El area del rectangulo es: "<<RE;
+			gotoxy(46,13);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,13);cin>>LE;
 			getch();
+			if (LE == 1) {
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+			} else {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+				gotoxy(32,15);cout<<"    ";
+				menuArea();
+				gotoxy(32,15);cout<<"    ";
+			}
+		} while (LE == 1);
 			break;
+		do {
 		case 4:
-			cuadro(44,6,80,12);
+			cuadro(44,6,80,13);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,10);
 			
@@ -163,37 +259,73 @@ void menuArea() {
 			RE = 3.1416 * (R * R);
 			OcultarCursor();
 			gotoxy(46,11);cout<<"El area del circulo es: "<<RE;
+			gotoxy(46,12);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,12);cin>>LE;
 			getch();
+			if (LE == 1) {
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+			} else {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+				gotoxy(32,15);cout<<"    ";
+				menuArea();
+				gotoxy(32,15);cout<<"    ";
+			}
+		} while (LE == 1);
+			break;
+		case 5:
+			system("cls");
+			main();
 			break;
 		default:
-			gotoxy(25,17);cout<<"Opcion invalida";
+			gotoxy(17,23);cout<<"Opcion invalida";
 			getch();
-			gotoxy(25,17);cout<<"               ";
-			gotoxy(32,14);cout<<"    ";
+			gotoxy(17,23);cout<<"               ";
+			gotoxy(32,15);cout<<"    ";
 			menuArea();
+			break;
 	}
 }
 
 void menuPerimetro() {
-	int opc,L,L1,L2,L3,A,R,RE;
-	cuadro(23,6,39,15);
+	int opc,L,L1,L2,L3,A,R,RE,LE;
+	cuadro(23,6,39,16);
 	cuadro(23,6,39,8);
-	cuadro(23,6,39,13);
+	cuadro(23,6,39,14);
 	
 	cuadroalt(23,0,39,8);
-	cuadroalt(23,0,39,13);
+	cuadroalt(23,0,39,14);
 	
 	gotoxy(25,7);cout<<"PERIMETRO";
 	gotoxy(25,9);cout<<"1) Cuadrado";
 	gotoxy(25,10);cout<<"2) Triangulo";
 	gotoxy(25,11);cout<<"3) Rectangulo";
 	gotoxy(25,12);cout<<"4) Circulo";
-	gotoxy(25,14);cout<<"OPCION: ";
-	gotoxy(34,14);cin>>opc;
+	gotoxy(25,13);cout<<"5) Regresar";
+	gotoxy(25,15);cout<<"OPCION: ";
+	gotoxy(34,15);cin>>opc;
 	
 	switch(opc) {
+		do {
 		case 1:
-			cuadro(44,6,80,12);
+			cuadro(44,6,80,13);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,10);
 			
@@ -206,10 +338,40 @@ void menuPerimetro() {
 			RE = (4 * L);
 			OcultarCursor();
 			gotoxy(46,11);cout<<"El perimetro del cuadrado es: "<<RE;
+			gotoxy(46,12);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,12);cin>>LE;
 			getch();
+			if (LE == 1) {
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+			} else {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+				gotoxy(32,15);cout<<"    ";
+				menuPerimetro();
+				gotoxy(32,15);cout<<"    ";
+			}
+		} while (LE == 1);
 			break;
+		do {
 		case 2:
-			cuadro(44,6,80,14);
+			cuadro(44,6,80,15);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,12);
 			
@@ -226,10 +388,42 @@ void menuPerimetro() {
 			RE = (L1 + L2 + L3);
 			OcultarCursor();
 			gotoxy(46,13);cout<<"El perimetro del triangulo es: "<<RE;
+			gotoxy(46,14);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,14);cin>>LE;
 			getch();
+			if (LE == 1) {
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+				gotoxy(44,15);cout<<"                                     ";
+			} else {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                     ";
+				gotoxy(44,7);cout<<"                                     ";
+				gotoxy(44,8);cout<<"                                     ";
+				gotoxy(44,9);cout<<"                                     ";
+				gotoxy(44,10);cout<<"                                     ";
+				gotoxy(44,11);cout<<"                                     ";
+				gotoxy(44,12);cout<<"                                     ";
+				gotoxy(44,13);cout<<"                                     ";
+				gotoxy(44,14);cout<<"                                     ";
+				gotoxy(44,15);cout<<"                                     ";
+				gotoxy(32,15);cout<<"    ";
+				menuPerimetro();
+				gotoxy(32,15);cout<<"    ";
+			}
+		} while (LE == 1);
 			break;
+		do {
 		case 3:
-			cuadro(44,6,81,13);
+			cuadro(44,6,81,14);
 			cuadro(44,6,81,8);
 			cuadro(44,6,81,11);
 			
@@ -244,10 +438,42 @@ void menuPerimetro() {
 			RE = 2 * (L + A);
 			OcultarCursor();
 			gotoxy(46,12);cout<<"El perimetro del rectangulo es: "<<RE;
+			gotoxy(46,13);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,13);cin>>LE;
 			getch();
+			if (LE == 1) {
+				gotoxy(44,6);cout<<"                                      ";
+				gotoxy(44,7);cout<<"                                      ";
+				gotoxy(44,8);cout<<"                                      ";
+				gotoxy(44,9);cout<<"                                      ";
+				gotoxy(44,10);cout<<"                                      ";
+				gotoxy(44,11);cout<<"                                      ";
+				gotoxy(44,12);cout<<"                                      ";
+				gotoxy(44,13);cout<<"                                      ";
+				gotoxy(44,14);cout<<"                                      ";
+				gotoxy(44,15);cout<<"                                      ";
+			} else {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                      ";
+				gotoxy(44,7);cout<<"                                      ";
+				gotoxy(44,8);cout<<"                                      ";
+				gotoxy(44,9);cout<<"                                      ";
+				gotoxy(44,10);cout<<"                                      ";
+				gotoxy(44,11);cout<<"                                      ";
+				gotoxy(44,12);cout<<"                                      ";
+				gotoxy(44,13);cout<<"                                      ";
+				gotoxy(44,14);cout<<"                                      ";
+				gotoxy(44,15);cout<<"                                      ";
+				gotoxy(32,15);cout<<"    ";
+				menuPerimetro();
+				gotoxy(32,15);cout<<"    ";
+			}
+		} while (LE == 1);
 			break;
+		do {
 		case 4:
-			cuadro(44,6,80,12);
+			cuadro(44,6,80,13);
 			cuadro(44,6,80,8);
 			cuadro(44,6,80,10);
 			
@@ -260,7 +486,42 @@ void menuPerimetro() {
 			RE = 2 * 3.1416 * R;
 			OcultarCursor();
 			gotoxy(46,11);cout<<"El perimetro del circulo es: "<<RE;
+			gotoxy(46,12);cout<<"Quieres repetir esta operacion?";
+			ActivarCursor();
+			gotoxy(78,12);cin>>LE;
 			getch();
+			if (LE == 1) {
+				gotoxy(44,6);cout<<"                                      ";
+				gotoxy(44,7);cout<<"                                      ";
+				gotoxy(44,8);cout<<"                                      ";
+				gotoxy(44,9);cout<<"                                      ";
+				gotoxy(44,10);cout<<"                                      ";
+				gotoxy(44,11);cout<<"                                      ";
+				gotoxy(44,12);cout<<"                                      ";
+				gotoxy(44,13);cout<<"                                      ";
+				gotoxy(44,14);cout<<"                                      ";
+				gotoxy(44,15);cout<<"                                      ";
+			} else {
+				ActivarCursor();
+				gotoxy(44,6);cout<<"                                      ";
+				gotoxy(44,7);cout<<"                                      ";
+				gotoxy(44,8);cout<<"                                      ";
+				gotoxy(44,9);cout<<"                                      ";
+				gotoxy(44,10);cout<<"                                      ";
+				gotoxy(44,11);cout<<"                                      ";
+				gotoxy(44,12);cout<<"                                      ";
+				gotoxy(44,13);cout<<"                                      ";
+				gotoxy(44,14);cout<<"                                      ";
+				gotoxy(44,15);cout<<"                                      ";
+				gotoxy(32,15);cout<<"    ";
+				menuPerimetro();
+				gotoxy(32,15);cout<<"    ";
+			}
+		} while (LE == 1);
+			break;
+		case 5:
+			system("cls");
+			main();
 			break;
 		default:
 			gotoxy(25,17);cout<<"Opcion invalida";
@@ -321,6 +582,6 @@ void mostrarFechaHora() {
 	time_t now = time(0);
 	tm *ltm = localtime(&now);
 	
-	gotoxy(3,23);cout << setfill('0')<< setw(2)<< ltm->tm_mday<< "/"<< setfill('0')<< setw(2)<< 1 + ltm->tm_mon<< "/"<< 1900 + ltm->tm_year<<endl;
-	gotoxy(75,23);cout << setfill('0')<< setw(2)<< ltm->tm_hour<< ":"<< setfill('0')<< setw(2)<< ltm->tm_min<<endl;
+	gotoxy(3,23);cout<< setfill('0')<< setw(2)<< ltm->tm_mday<< "/"<< setfill('0')<< setw(2)<< 1 + ltm->tm_mon<< "/"<< 1900 + ltm->tm_year<<endl;
+	gotoxy(75,23);cout<< setfill('0')<< setw(2)<< ltm->tm_hour<< ":"<< setfill('0')<< setw(2)<< ltm->tm_min<<endl;
 }
