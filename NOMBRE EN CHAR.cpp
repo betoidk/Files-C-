@@ -5,13 +5,13 @@
 using namespace std;
 
 int main() {
-	char nombre[50];
+	string nombre;
 	char ap[50];
 	char am[50];
 	int edad,peso;
 	
 	cout<<"Digita tu nombre: ";
-	cin>>nombre;
+	getline(cin,nombre);
 	cout<<"Digita tu apellido paterno: ";
 	cin>>ap;
 	cout<<"Digita tu apellido materno: ";
